@@ -1,0 +1,125 @@
+.features {
+  padding-top: 2rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.25rem;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.3), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.feature-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(255, 107, 53, 0.08) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.feature-card:hover {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 107, 53, 0.25);
+  transform: translateY(-8px);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.2),
+    0 0 40px rgba(255, 107, 53, 0.08);
+}
+
+.feature-card:hover::before,
+.feature-card:hover::after {
+  opacity: 1;
+}
+
+.feature-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.12) 0%, rgba(255, 107, 53, 0.04) 100%);
+  border: 1px solid rgba(255, 107, 53, 0.15);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  color: var(--primary);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 1;
+}
+
+.feature-card:hover .feature-icon {
+  background: linear-gradient(135deg, #FF6B35 0%, #FF8C5A 100%);
+  color: white;
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+  border-color: transparent;
+}
+
+.feature-card h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  color: var(--text-primary);
+  position: relative;
+  z-index: 1;
+}
+
+.feature-card p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+  
+  .feature-card {
+    padding: 1.5rem;
+  }
+  
+  .feature-icon {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .feature-card h3 {
+    font-size: 1.05rem;
+  }
+  
+  .feature-card p {
+    font-size: 0.85rem;
+  }
+}

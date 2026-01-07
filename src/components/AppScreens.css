@@ -1,0 +1,205 @@
+/* Who is this for Section */
+.user-types {
+  padding-bottom: 2rem;
+}
+
+.user-types-grid {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.user-card {
+  background: linear-gradient(135deg, rgba(0, 168, 150, 0.08) 0%, rgba(0, 168, 150, 0.02) 100%);
+  border: 1px solid rgba(0, 168, 150, 0.15);
+  border-radius: var(--radius-xl);
+  padding: 2rem 1.75rem;
+  text-align: center;
+  flex: 0 1 280px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.user-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.user-card:hover {
+  border-color: rgba(0, 168, 150, 0.35);
+  transform: translateY(-8px);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.2),
+    0 0 40px rgba(0, 168, 150, 0.1);
+}
+
+.user-card:hover::before {
+  opacity: 1;
+}
+
+.user-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, rgba(0, 168, 150, 0.2) 0%, rgba(0, 168, 150, 0.08) 100%);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  color: var(--secondary);
+  transition: all 0.4s ease;
+}
+
+.user-card:hover .user-icon {
+  background: linear-gradient(135deg, #00A896 0%, #00C4B0 100%);
+  color: white;
+  transform: scale(1.1) rotate(-5deg);
+  box-shadow: 0 10px 30px rgba(0, 168, 150, 0.4);
+}
+
+.user-card h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.user-card p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* App Screens Section */
+.screens-grid {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.screen-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-xl);
+  padding: 1.85rem 1.5rem;
+  text-align: center;
+  min-width: 180px;
+  flex: 0 1 200px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.screen-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(255, 107, 53, 0.08) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.screen-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-8px) scale(1.02);
+  background: rgba(255, 107, 53, 0.04);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.2),
+    0 0 30px rgba(255, 107, 53, 0.1);
+}
+
+.screen-card:hover::after {
+  opacity: 1;
+}
+
+.screen-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, rgba(0, 168, 150, 0.12) 0%, rgba(0, 168, 150, 0.04) 100%);
+  border: 1px solid rgba(0, 168, 150, 0.15);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.1rem;
+  color: var(--secondary);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 1;
+}
+
+.screen-card:hover .screen-icon {
+  background: linear-gradient(135deg, #00A896 0%, #00C4B0 100%);
+  color: white;
+  transform: scale(1.15);
+  box-shadow: 0 8px 25px rgba(0, 168, 150, 0.4);
+  border-color: transparent;
+}
+
+.screen-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--text-primary);
+  position: relative;
+  z-index: 1;
+}
+
+.screen-card p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .user-types-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .user-card {
+    width: 100%;
+    max-width: 340px;
+    padding: 1.5rem 1.25rem;
+  }
+  
+  .user-icon {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .screens-grid {
+    gap: 0.75rem;
+  }
+  
+  .screen-card {
+    min-width: 140px;
+    flex: 0 1 calc(50% - 0.5rem);
+    padding: 1.25rem 1rem;
+  }
+  
+  .screen-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0.75rem;
+  }
+  
+  .screen-card h3 {
+    font-size: 0.9rem;
+  }
+  
+  .screen-card p {
+    font-size: 0.75rem;
+  }
+}
