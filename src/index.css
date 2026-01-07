@@ -1,29 +1,45 @@
 :root {
-  --primary: #FF6B35;
-  --primary-dark: #E55A2B;
-  --primary-light: #FF8C5A;
-  --secondary: #00A896;
-  --secondary-light: #00C4B0;
+  /* Primary - Warm Orange/Coral */
+  --primary: #FF5E3A;
+  --primary-dark: #E54D2A;
+  --primary-light: #FF7B5C;
   
-  --breakfast-color: #FFB347;
-  --lunch-color: #87CEEB;
-  --dinner-color: #DDA0DD;
+  /* Secondary - Vibrant Teal */
+  --secondary: #00D4AA;
+  --secondary-light: #00EBC0;
+  --secondary-dark: #00B894;
   
-  --bg-dark: #0F0F1A;
-  --bg-darker: #0A0A12;
-  --bg-card: #1A1A2E;
+  /* Accent Colors */
+  --accent-purple: #A855F7;
+  --accent-blue: #3B82F6;
+  --accent-pink: #EC4899;
   
-  --text-primary: #FFFFFF;
-  --text-secondary: #B8C5D6;
-  --text-muted: #6B7280;
+  /* Meal Colors - More vibrant */
+  --breakfast-color: #FBBF24;
+  --lunch-color: #38BDF8;
+  --dinner-color: #E879F9;
   
+  /* Background - Deeper, richer blacks */
+  --bg-dark: #0a0a0f;
+  --bg-darker: #06060a;
+  --bg-card: #12121a;
+  --bg-card-hover: #1a1a24;
+  
+  /* Text - Better contrast */
+  --text-primary: #FAFAFA;
+  --text-secondary: #A1A1AA;
+  --text-muted: #71717A;
+  
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(255, 255, 255, 0.12);
+  
+  /* Radius */
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
   --radius-xl: 24px;
-  
-  --shadow-glow: 0 0 40px rgba(255, 107, 53, 0.15);
-  --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.3);
+  --radius-2xl: 32px;
 }
 
 *, *::before, *::after {
@@ -34,6 +50,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -45,103 +62,44 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-/* Global Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* GPU Acceleration for animations */
+.reveal, 
+[class*="card"], 
+[class*="feature"], 
+[class*="step"],
+[class*="screen"] {
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes glow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(255, 107, 53, 0.5);
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-/* Utility Classes */
-.animate-fadeInUp {
-  animation: fadeInUp 0.6s ease-out forwards;
-}
-
-.animate-scaleIn {
-  animation: scaleIn 0.5s ease-out forwards;
+/* Smooth transitions for all interactive elements */
+a, button, input {
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 a {
   color: inherit;
   text-decoration: none;
-  transition: color 0.3s ease;
 }
 
 button {
   font-family: inherit;
   cursor: pointer;
   border: none;
-  transition: all 0.3s ease;
 }
 
 input {
   font-family: inherit;
   border: none;
   outline: none;
-  transition: all 0.3s ease;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar - Minimal */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -149,13 +107,12 @@ input {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--bg-card) 0%, rgba(255, 107, 53, 0.3) 100%);
-  border-radius: 5px;
-  border: 2px solid var(--bg-darker);
+  background: var(--bg-card);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
+  background: var(--primary);
 }
 
 ::selection {

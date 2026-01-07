@@ -3,17 +3,14 @@
 }
 
 .cta-card {
-  background: linear-gradient(135deg, #FF6B35 0%, #FF8C5A 50%, #FFB347 100%);
-  border-radius: 32px;
+  background: linear-gradient(135deg, #FF5E3A 0%, #FF7B5C 50%, #FBBF24 100%);
+  border-radius: var(--radius-2xl);
   padding: 4rem 2rem;
   text-align: center;
   max-width: 750px;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
-  box-shadow: 
-    0 30px 60px rgba(255, 107, 53, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .cta-card::before {

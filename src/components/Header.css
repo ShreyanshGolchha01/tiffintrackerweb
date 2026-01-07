@@ -4,16 +4,13 @@
   left: 0;
   right: 0;
   padding: 1rem 2rem;
-  background: rgba(15, 15, 26, 0.8);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   z-index: 1000;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  transition: all 0.3s ease;
-}
-
-.header:hover {
-  background: rgba(15, 15, 26, 0.9);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: background 0.3s ease;
+  will-change: background;
 }
 
 .header-content {
@@ -28,35 +25,34 @@
   display: flex;
   align-items: center;
   gap: 0.65rem;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
 }
 
 .logo:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
 .logo-icon {
   width: 44px;
   height: 44px;
-  background: linear-gradient(135deg, #FF6B35 0%, #FF8C5A 100%);
+  background: linear-gradient(135deg, #FF5E3A 0%, #FF7B5C 100%);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .logo:hover .logo-icon {
   transform: rotate(-5deg);
-  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
 }
 
 .logo-text {
   font-size: 1.3rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #FF6B35 0%, #FF8C5A 50%, #FFB347 100%);
+  background: linear-gradient(135deg, #FF5E3A 0%, #FF7B5C 50%, #FBBF24 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

@@ -1,6 +1,6 @@
 .app {
   min-height: 100vh;
-  background: linear-gradient(180deg, #0F0F1A 0%, #080810 50%, #0A0A12 100%);
+  background: linear-gradient(180deg, #0a0a0f 0%, #0c0c12 50%, #08080c 100%);
   position: relative;
   overflow-x: hidden;
 }
@@ -13,22 +13,8 @@
   right: 0;
   bottom: 0;
   background-image: 
-    radial-gradient(circle at 15% 15%, rgba(255, 107, 53, 0.08) 0%, transparent 40%),
-    radial-gradient(circle at 85% 20%, rgba(0, 168, 150, 0.06) 0%, transparent 40%),
-    radial-gradient(circle at 50% 80%, rgba(255, 140, 90, 0.04) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.app::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  opacity: 0.02;
+    radial-gradient(ellipse at 15% 0%, rgba(255, 94, 58, 0.08) 0%, transparent 45%),
+    radial-gradient(ellipse at 85% 100%, rgba(0, 212, 170, 0.06) 0%, transparent 45%);
   pointer-events: none;
   z-index: 0;
 }
@@ -39,20 +25,20 @@ main {
 }
 
 section {
-  padding: 5rem 5%;
+  padding: 6rem 5%;
   max-width: 1400px;
   margin: 0 auto;
 }
 
 @media (max-width: 768px) {
   section {
-    padding: 3rem 1rem;
+    padding: 4rem 1rem;
   }
 }
 
 @media (max-width: 480px) {
   section {
-    padding: 2.5rem 0.75rem;
+    padding: 3rem 0.75rem;
   }
 }
 
@@ -60,15 +46,12 @@ section {
   text-align: center;
   font-size: clamp(1.5rem, 5vw, 2.5rem);
   font-weight: 700;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
   color: #fff;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.6s ease forwards;
 }
 
 @media (max-width: 480px) {
@@ -84,25 +67,76 @@ section {
 }
 
 .section-title svg {
-  color: #FF6B35;
-  filter: drop-shadow(0 0 8px rgba(255, 107, 53, 0.4));
+  color: #FF5E3A;
 }
 
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Smooth scroll reveal */
+/* Smooth Scroll Reveal - Infinite Scroll Feel */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Staggered children animation - Smoother */
+.reveal.visible .feature-card,
+.reveal.visible .stat-card,
+.reveal.visible .step-wrapper,
+.reveal.visible .problem-item,
+.reveal.visible .screen-card,
+.reveal.visible .user-card {
+  animation: revealUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+.reveal.visible .feature-card:nth-child(1),
+.reveal.visible .stat-card:nth-child(1),
+.reveal.visible .step-wrapper:nth-child(1),
+.reveal.visible .problem-item:nth-child(1) { animation-delay: 0.1s; }
+
+.reveal.visible .feature-card:nth-child(2),
+.reveal.visible .stat-card:nth-child(2),
+.reveal.visible .step-wrapper:nth-child(2),
+.reveal.visible .problem-item:nth-child(2) { animation-delay: 0.2s; }
+
+.reveal.visible .feature-card:nth-child(3),
+.reveal.visible .stat-card:nth-child(3),
+.reveal.visible .step-wrapper:nth-child(3),
+.reveal.visible .problem-item:nth-child(3) { animation-delay: 0.3s; }
+
+.reveal.visible .feature-card:nth-child(4),
+.reveal.visible .stat-card:nth-child(4),
+.reveal.visible .problem-item:nth-child(4) { animation-delay: 0.4s; }
+
+.reveal.visible .feature-card:nth-child(5),
+.reveal.visible .problem-item:nth-child(5) { animation-delay: 0.5s; }
+
+.reveal.visible .feature-card:nth-child(6) { animation-delay: 0.6s; }
+
+.reveal.visible .screen-card:nth-child(1),
+.reveal.visible .user-card:nth-child(1) { animation-delay: 0.15s; }
+
+.reveal.visible .screen-card:nth-child(2),
+.reveal.visible .user-card:nth-child(2) { animation-delay: 0.25s; }
+
+.reveal.visible .screen-card:nth-child(3),
+.reveal.visible .user-card:nth-child(3) { animation-delay: 0.35s; }
+
+.reveal.visible .screen-card:nth-child(4) { animation-delay: 0.45s; }
+
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

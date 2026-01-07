@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Marquee from './components/Marquee'
@@ -23,6 +23,38 @@ function App() {
     }
     setShowModal(true)
   }
+
+  // Smooth scroll reveal animation with better performance
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -80px 0px'
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Use requestAnimationFrame for smoother class toggle
+          requestAnimationFrame(() => {
+            entry.target.classList.add('visible')
+          })
+        }
+      })
+    }, observerOptions)
+
+    // Small delay to ensure DOM is ready
+    const timer = setTimeout(() => {
+      document.querySelectorAll('section, .reveal-item').forEach(el => {
+        el.classList.add('reveal')
+        observer.observe(el)
+      })
+    }, 100)
+
+    return () => {
+      clearTimeout(timer)
+      observer.disconnect()
+    }
+  }, [])
 
   return (
     <div className="app">

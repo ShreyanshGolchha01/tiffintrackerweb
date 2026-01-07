@@ -1,10 +1,9 @@
 .footer {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background: linear-gradient(180deg, rgba(10, 10, 15, 0.4) 0%, rgba(5, 5, 10, 0.8) 100%);
   padding: 4rem 5% 3rem;
   text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid var(--border-subtle);
   position: relative;
-  overflow: hidden;
 }
 
 .footer::before {
@@ -15,7 +14,7 @@
   transform: translateX(-50%);
   width: 300px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  background: linear-gradient(90deg, transparent, #FF5E3A, transparent);
 }
 
 .footer-content {
@@ -33,7 +32,8 @@
   font-size: 1.35rem;
   font-weight: 700;
   margin-bottom: 0.6rem;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
 }
 
 .footer-logo:hover {
@@ -43,19 +43,17 @@
 .footer-logo-icon {
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, #FF6B35 0%, #FF8C5A 100%);
+  background: linear-gradient(135deg, #FF5E3A 0%, #FF7B5C 100%);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .footer-logo:hover .footer-logo-icon {
   transform: rotate(-8deg);
-  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
 }
 
 .footer-tagline {
@@ -112,16 +110,12 @@
 
 .heart {
   color: #EF4444;
-  animation: heartbeat 1.2s ease-in-out infinite;
-  filter: drop-shadow(0 0 3px rgba(239, 68, 68, 0.5));
+  animation: heartbeat 2s ease-in-out infinite;
 }
 
 @keyframes heartbeat {
   0%, 100% { transform: scale(1); }
-  15% { transform: scale(1.25); }
-  30% { transform: scale(1); }
-  45% { transform: scale(1.15); }
-  60% { transform: scale(1); }
+  50% { transform: scale(1.15); }
 }
 
 @media (max-width: 480px) {

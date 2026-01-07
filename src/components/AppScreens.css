@@ -11,15 +11,16 @@
 }
 
 .user-card {
-  background: linear-gradient(135deg, rgba(0, 168, 150, 0.08) 0%, rgba(0, 168, 150, 0.02) 100%);
-  border: 1px solid rgba(0, 168, 150, 0.15);
+  background: linear-gradient(135deg, rgba(0, 212, 170, 0.08) 0%, rgba(0, 212, 170, 0.02) 100%);
+  border: 1px solid rgba(0, 212, 170, 0.15);
   border-radius: var(--radius-xl);
   padding: 2rem 1.75rem;
   text-align: center;
   flex: 0 1 280px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.3s ease;
   position: relative;
-  overflow: hidden;
+  will-change: transform;
 }
 
 .user-card::before {
@@ -35,11 +36,8 @@
 }
 
 .user-card:hover {
-  border-color: rgba(0, 168, 150, 0.35);
-  transform: translateY(-8px);
-  box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.2),
-    0 0 40px rgba(0, 168, 150, 0.1);
+  border-color: rgba(0, 212, 170, 0.4);
+  transform: translateY(-12px);
 }
 
 .user-card:hover::before {
