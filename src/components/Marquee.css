@@ -47,22 +47,72 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--text-secondary);
+  color: #fff;
   font-size: 0.9rem;
   font-weight: 500;
   white-space: nowrap;
   padding: 0.5rem 1.25rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border-subtle);
+  background: transparent;
   border-radius: 50px;
   transition: all 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Rotating gradient border */
+.marquee-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50px;
+  padding: 1.5px;
+  background: linear-gradient(
+    var(--r, 0deg),
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0.5)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: rotateGradient 8s linear infinite;
+}
+
+/* Inner background */
+.marquee-item::after {
+  content: '';
+  position: absolute;
+  inset: 1.5px;
+  border-radius: 48px;
+  background: var(--bg-dark);
+  z-index: -1;
+}
+
+@keyframes rotateGradient {
+  0% {
+    --r: 0deg;
+  }
+  100% {
+    --r: 360deg;
+  }
+}
+
+@property --r {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
 }
 
 .marquee-item:hover {
-  background: rgba(255, 94, 58, 0.08);
-  border-color: rgba(255, 94, 58, 0.25);
   color: var(--text-primary);
   transform: scale(1.05);
+}
+
+.marquee-item:hover::before {
+  animation-duration: 1s;
 }
 
 .marquee-item svg {
