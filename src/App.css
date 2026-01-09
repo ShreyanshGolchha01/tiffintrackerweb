@@ -1,22 +1,30 @@
 .app {
   min-height: 100vh;
-  background: linear-gradient(180deg, #0a0a0f 0%, #0c0c12 50%, #08080c 100%);
+  background: #030303;
   position: relative;
   overflow-x: hidden;
 }
 
-.app::before {
-  content: '';
+/* Full Page Geometric Background */
+.global-geometric-bg {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: 
-    radial-gradient(ellipse at 15% 0%, rgba(255, 94, 58, 0.08) 0%, transparent 45%),
-    radial-gradient(ellipse at 85% 100%, rgba(0, 212, 170, 0.06) 0%, transparent 45%);
-  pointer-events: none;
   z-index: 0;
+  pointer-events: none;
+}
+
+.global-geometric-bg > div {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100vh !important;
+}
+
+/* Hide text content from HeroGeometric */
+.global-geometric-bg .container {
+  display: none !important;
 }
 
 main {

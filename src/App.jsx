@@ -10,6 +10,7 @@ import AppScreens from './components/AppScreens'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
 import Modal from './components/Modal'
+import { HeroGeometric } from './components/ui/shape-landing-hero'
 import './App.css'
 
 function App() {
@@ -58,6 +59,15 @@ function App() {
 
   return (
     <div className="app">
+      {/* Full Page Geometric Background */}
+      <div className="global-geometric-bg">
+        <HeroGeometric 
+          badge=""
+          title1=""
+          title2=""
+        />
+      </div>
+      
       <Header />
       <main>
         <Hero onSubscribe={handleSubscribe} />

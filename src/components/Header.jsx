@@ -1,9 +1,21 @@
+import { useState, useEffect } from 'react'
 import { UtensilsCrossed } from 'lucide-react'
 import './Header.css'
 
 function Header() {
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50)
+    }
+    
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <header className="header">
+    <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="header-content">
         <div className="logo">
           <div className="logo-icon">

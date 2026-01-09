@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root {
   /* Primary - Warm Orange/Coral */
   --primary: #FF5E3A;

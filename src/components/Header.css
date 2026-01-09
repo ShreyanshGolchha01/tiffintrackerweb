@@ -4,13 +4,20 @@
   left: 0;
   right: 0;
   padding: 1rem 2rem;
-  background: rgba(10, 10, 15, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   z-index: 1000;
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: none;
   transition: background 0.3s ease;
   will-change: background;
+}
+
+.header.scrolled {
+  background: rgba(3, 3, 3, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .header-content {
