@@ -181,18 +181,7 @@
   padding: 1.5rem;
   backdrop-filter: blur(20px);
   position: relative;
-  overflow: hidden;
   transition: all 0.4s ease;
-}
-
-.notify-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.5), transparent);
 }
 
 .notify-section:hover {

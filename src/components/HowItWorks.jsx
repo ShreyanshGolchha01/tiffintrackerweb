@@ -33,7 +33,9 @@ function HowItWorks() {
       <div className="steps-container">
         {steps.map((step, index) => (
           <div className="step-wrapper" key={index}>
-            <div className="step">
+            <div className="step spotlight-card">
+              <div className="spotlight-glow"></div>
+              <div className="spotlight-border"></div>
               <div className="step-number">{step.number}</div>
               <div className="step-icon">
                 <step.icon size={24} />

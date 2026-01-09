@@ -23,25 +23,9 @@
   will-change: transform;
 }
 
-.user-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, var(--secondary), transparent);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
 .user-card:hover {
   border-color: rgba(0, 212, 170, 0.4);
   transform: translateY(-12px);
-}
-
-.user-card:hover::before {
-  opacity: 1;
 }
 
 .user-icon {
@@ -89,36 +73,21 @@
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-xl);
-  padding: 1.85rem 1.5rem;
+  padding: 2rem 1.5rem;
   text-align: center;
-  min-width: 180px;
-  flex: 0 1 200px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 0.3s ease;
+  min-width: 220px;
+  flex: 0 1 240px;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.3s ease,
+              background 0.3s ease;
   position: relative;
-  overflow: hidden;
-}
-
-.screen-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 0%, rgba(0, 212, 170, 0.08) 0%, transparent 60%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  will-change: transform;
 }
 
 .screen-card:hover {
   border-color: rgba(0, 212, 170, 0.35);
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-10px);
   background: rgba(0, 212, 170, 0.04);
-  box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.2),
-    0 0 30px rgba(0, 212, 170, 0.15);
-}
-
-.screen-card:hover::after {
-  opacity: 1;
 }
 
 .screen-icon {

@@ -15,7 +15,9 @@ function CTA({ onSubscribe }) {
 
   return (
     <section className="cta-section">
-      <div className="cta-card">
+      <div className="cta-card spotlight-card">
+        <div className="spotlight-glow"></div>
+        <div className="spotlight-border"></div>
         <div className="cta-icon">
           <Rocket size={32} />
         </div>

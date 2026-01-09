@@ -54,7 +54,9 @@ function AppScreens() {
         
         <div className="user-types-grid">
           {userTypes.map((user, index) => (
-            <div className="user-card" key={index}>
+            <div className="user-card spotlight-card spotlight-teal" key={index}>
+              <div className="spotlight-glow"></div>
+              <div className="spotlight-border"></div>
               <div className="user-icon">
                 <user.icon size={28} />
               </div>
@@ -74,7 +76,9 @@ function AppScreens() {
         
         <div className="screens-grid">
           {screens.map((screen, index) => (
-            <div className="screen-card" key={index} style={{ animationDelay: `${index * 0.1}s` }}>
+            <div className="screen-card spotlight-card spotlight-teal" key={index} style={{ animationDelay: `${index * 0.1}s` }}>
+              <div className="spotlight-glow"></div>
+              <div className="spotlight-border"></div>
               <div className="screen-icon">
                 <screen.icon size={28} />
               </div>

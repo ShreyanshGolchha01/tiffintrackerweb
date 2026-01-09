@@ -34,7 +34,9 @@ function Problems() {
       
       <div className="problems-container">
         {problems.map((item, index) => (
-          <div className="problem-item" key={index}>
+          <div className="problem-item spotlight-card spotlight-teal" key={index}>
+            <div className="spotlight-glow"></div>
+            <div className="spotlight-border"></div>
             <div className="problem-icon">
               <X size={18} />
             </div>

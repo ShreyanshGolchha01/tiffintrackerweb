@@ -140,3 +140,45 @@ input {
     scroll-behavior: auto;
   }
 }
+
+/* Spotlight Glow Effect for Cards */
+.spotlight-card {
+  --spotlight-color: 25; /* Orange hue */
+  --spotlight-size: 350px;
+  position: relative;
+}
+
+/* Border glow that follows mouse */
+.spotlight-card .spotlight-border {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: radial-gradient(
+    calc(var(--spotlight-size) * 0.6) calc(var(--spotlight-size) * 0.6) at var(--mouse-x, -100px) var(--mouse-y, -100px),
+    hsla(var(--spotlight-color), 100%, 60%, 0.8),
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 1px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.spotlight-card:hover .spotlight-border {
+  opacity: 1;
+}
+
+/* Hide the glow div - only border effect */
+.spotlight-card .spotlight-glow {
+  display: none;
+}
+
+/* Green/Teal spotlight variant */
+.spotlight-card.spotlight-teal {
+  --spotlight-color: 170;
+}

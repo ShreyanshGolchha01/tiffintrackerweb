@@ -16,9 +16,11 @@ export default function Stats() {
           {stats.map((stat, index) => (
             <div 
               key={index} 
-              className={`stat-card stat-${stat.color}`}
+              className={`stat-card stat-${stat.color} spotlight-card ${stat.color === 'secondary' ? 'spotlight-teal' : ''}`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
+              <div className="spotlight-glow"></div>
+              <div className="spotlight-border"></div>
               <div className="stat-icon">
                 <stat.icon size={24} />
               </div>

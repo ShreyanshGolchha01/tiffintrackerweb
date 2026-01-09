@@ -21,27 +21,10 @@
   will-change: transform;
 }
 
-.problem-item::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: var(--secondary);
-  border-radius: 3px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
 .problem-item:hover {
   border-color: rgba(0, 212, 170, 0.25);
   background: rgba(0, 212, 170, 0.04);
   transform: translateX(8px);
-}
-
-.problem-item:hover::before {
-  opacity: 1;
 }
 
 .problem-icon {

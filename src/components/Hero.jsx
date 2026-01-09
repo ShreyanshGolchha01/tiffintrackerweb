@@ -62,7 +62,8 @@ function Hero({ onSubscribe }) {
           </div>
         </div>
 
-        <div className="notify-section">
+        <div className="notify-section spotlight-card">
+          <div className="spotlight-border"></div>
           <h3>
             <Bell size={18} />
             Launch pe notification chahiye?

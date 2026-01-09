@@ -52,7 +52,9 @@ function Features() {
       
       <div className="features-grid">
         {features.map((feature, index) => (
-          <div className="feature-card" key={index}>
+          <div className="feature-card spotlight-card" key={index}>
+            <div className="spotlight-glow"></div>
+            <div className="spotlight-border"></div>
             <div className="feature-icon">
               <feature.icon size={24} />
             </div>
