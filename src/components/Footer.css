@@ -84,7 +84,7 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  background: white;
   transition: width 0.3s ease;
   border-radius: 1px;
 }
