@@ -29,7 +29,7 @@ function CTA({ onSubscribe }) {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="tumhara@email.com"
+            placeholder="yours@email.com"
             required
           />
           <button type="submit" className="btn-cta">

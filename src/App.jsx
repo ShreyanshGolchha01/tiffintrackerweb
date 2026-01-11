@@ -10,11 +10,13 @@ import AppScreens from './components/AppScreens'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
 import Modal from './components/Modal'
+import Loader from './components/Loader'
 import { HeroGeometric } from './components/ui/shape-landing-hero'
 import './App.css'
 
 function App() {
   const [showModal, setShowModal] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   const handleSubscribe = (email) => {
     const subscribers = JSON.parse(localStorage.getItem('tiffin_subscribers') || '[]')
@@ -75,30 +77,33 @@ function App() {
   }, [])
 
   return (
-    <div className="app">
-      {/* Full Page Geometric Background */}
-      <div className="global-geometric-bg">
-        <HeroGeometric 
-          badge=""
-          title1=""
-          title2=""
-        />
+    <>
+      {isLoading && <Loader onLoadComplete={() => setIsLoading(false)} />}
+      <div className={`app ${isLoading ? 'app-loading' : 'app-loaded'}`}>
+        {/* Full Page Geometric Background */}
+        <div className="global-geometric-bg">
+          <HeroGeometric 
+            badge=""
+            title1=""
+            title2=""
+          />
+        </div>
+        
+        <Header />
+        <main>
+          <Hero onSubscribe={handleSubscribe} />
+          <Marquee />
+          <Stats />
+          <Features />
+          <Problems />
+          <HowItWorks />
+          <AppScreens />
+          <CTA onSubscribe={handleSubscribe} />
+        </main>
+        <Footer />
+        <Modal isOpen={showModal} onClose={() => setShowModal(false)} />
       </div>
-      
-      <Header />
-      <main>
-        <Hero onSubscribe={handleSubscribe} />
-        <Marquee />
-        <Stats />
-        <Features />
-        <Problems />
-        <HowItWorks />
-        <AppScreens />
-        <CTA onSubscribe={handleSubscribe} />
-      </main>
-      <Footer />
-      <Modal isOpen={showModal} onClose={() => setShowModal(false)} />
-    </div>
+    </>
   )
 }
 

@@ -15,6 +15,7 @@ export default function Marquee() {
 
   return (
     <div className="marquee-section">
+      <div className="marquee-shine"></div>
       <div className="marquee-track">
         <div className="marquee-content">
           {[...items, ...items].map((item, index) => (

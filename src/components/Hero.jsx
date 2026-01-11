@@ -63,6 +63,7 @@ function Hero({ onSubscribe }) {
         </div>
 
         <div className="notify-section spotlight-card">
+          <div className="spotlight-glow"></div>
           <div className="spotlight-border"></div>
           <h3>
             <Bell size={18} />

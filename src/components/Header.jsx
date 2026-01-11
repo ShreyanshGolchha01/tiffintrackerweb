@@ -21,7 +21,7 @@ function Header() {
           <div className="logo-icon">
             <UtensilsCrossed size={24} />
           </div>
-          <span className="logo-text">Tiffin Tracker</span>
+          <span className="logo-text">TiffinHub</span>
         </div>
         
         <nav className="nav-links">

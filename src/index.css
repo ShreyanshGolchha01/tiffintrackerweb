@@ -144,27 +144,27 @@ input {
 /* Spotlight Glow Effect for Cards */
 .spotlight-card {
   --spotlight-color: 25; /* Orange hue */
-  --spotlight-size: 350px;
+  --spotlight-size: 100px;
   position: relative;
 }
 
-/* Border glow that follows mouse */
+/* Border glow that follows mouse - only near cursor */
 .spotlight-card .spotlight-border {
   position: absolute;
   inset: -1px;
   border-radius: inherit;
   background: radial-gradient(
-    calc(var(--spotlight-size) * 0.6) calc(var(--spotlight-size) * 0.6) at var(--mouse-x, -100px) var(--mouse-y, -100px),
-    hsla(var(--spotlight-color), 100%, 60%, 0.8),
+    var(--spotlight-size) var(--spotlight-size) at var(--mouse-x, -100px) var(--mouse-y, -100px),
+    hsla(var(--spotlight-color), 100%, 60%, 1),
     transparent 100%
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
-  padding: 1px;
+  padding: 1.5px;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.15s ease;
   pointer-events: none;
   z-index: 2;
 }
@@ -173,7 +173,7 @@ input {
   opacity: 1;
 }
 
-/* Hide the glow div - only border effect */
+/* Hide inner glow - only border */
 .spotlight-card .spotlight-glow {
   display: none;
 }
